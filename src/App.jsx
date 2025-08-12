@@ -95,7 +95,7 @@ function App() {
     </section>
 
 
-          <section id="category2" className="h-screen flex flex-col bg-gray-200">
+          <section id="category2" className=" flex flex-col bg-gray-200">
             <div className="flex flex-col items-center justify-center mt-2">
               <div className=" flex justify-center items-center  mt-5">
                 <div className=" w-[full] flex  justify-between flex-row-reverse mx-4 gap-6">
@@ -143,15 +143,15 @@ function App() {
 
           <section
             id="category3"
-            className="h-screen flex flex-col  justify-center bg-amber-50"
+            className=" flex flex-col  justify-center bg-amber-50"
           >
-            <div className='  flex justify-center '>
+            <div className='  flex justify-center mt-4 '>
               <div className='w-[100%]  lg:w-[full] max-w-[1200px] '>
                 <h2 className=' text-3xl py-2 p-2 lg:p-0 sm:text-[24px] lg:text-[28px] font-bold '>OUR SERVICE</h2>
               </div>
 
             </div>
-            <div className='flex flex-col p-2 lg:p-0 lg:flex-row justify-center gap-2.5 my-10 '>
+            <div className='flex flex-col p-2 lg:p-0 lg:flex-row justify-center gap-2.5 my-6 '>
               <div className=' max-w-[1200px] w-full my-5 lg:w-[full]  flex flex-col lg:flex-row gap-2.5'>
                 <div className='lg:w-[25%] h-90  shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-2xl bg-blue-100'>
                   <div className=' flex justify-center'>
