@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
+import clock from "./assets/clock.jpg"
+import handshake from "./assets/handshake.jpg"
+import finance from "./assets/finance.jpg"
+
+
 
 function App() {
   const scrollToSection = (id) => {
@@ -14,58 +19,38 @@ function App() {
     });
 
   };
-  const [formData, setFormData] = useState({
-    name: "",
-    contact: "",
-    cardNumber: "",
-    expiry: "",
-    cvv: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted Data:", formData);
-    alert("Payment submitted!");
-  };
+  
 
 
   return (
     <>
       <div>
-        
+
         <header className="fixed top-0 left-0 w-full z-50 ">
-         
-          <div className=" py-1 flex justify-end gap-2 px-2 items-center bg-gradient-to-b  bg-[#0e7490]">
+
+          <div className=" py-1 flex justify-end gap-2 px-2 items-center  bg-gradient-to-br  bg-[#4779f8] to-[#e765d2]">
             <FaPhoneAlt color="white" />
             <p className="text-white font-medium text-lg">+91 9368432124 </p>
           </div>
 
-          {/* Nav Bar */}
-          <div className=" text-white text-[18px] flex justify-between items-center gap-8 py-2 px-4 bg-gradient-to-br  bg-[#4779f8] to-[#e765d2]">
+
+          <div className=" text-gray-800 font-medium text-[18px] flex justify-between items-center gap-8 py-4 px-4 bg-white ">
             <div className="text-[30px] font-bold">Finance</div>
 
             <div className="flex gap-10">
-              <button onClick={() => scrollToSection("category1")} className=" cursor-pointer">Home</button>
-              <button onClick={() => scrollToSection("category2")} className=" cursor-pointer">About Us</button>
-              <button onClick={() => scrollToSection("category3")} className=" cursor-pointer">Loan Service</button>
-              <button onClick={() => scrollToSection("category4")} className=" cursor-pointer">Payment</button>
+              <button onClick={() => scrollToSection("category1")} className=" cursor-pointer hover:underline">Home</button>
+              <button onClick={() => scrollToSection("category2")} className=" cursor-pointer hover:underline">About Us</button>
+              <button onClick={() => scrollToSection("category3")} className=" cursor-pointer hover:underline">Loan Service</button>
+              <a href="/payments"  className=" cursor-pointer hover:underline">Payment</a>
             </div>
           </div>
         </header>
 
-        {/* Page Content */}
+
         <main>
           <div className="h-24"></div>
 
-          {/* Section 1 */}
+
           <section
             id="category1"
             className="relative w-full h-[500px] flex items-center justify-center"
@@ -76,7 +61,7 @@ function App() {
               className="w-full h-full object-cover"
             />
 
-            {/* Text overlay */}
+
             <div className="absolute inset-0 flex flex-col items-center justify-center text-black text-center">
               <h2 className="text-4xl font-extrabold">Finance Service</h2>
               <h2 className="text-2xl font-bold">PVT. LTD.</h2>
@@ -88,25 +73,43 @@ function App() {
 
           </section>
 
-          {/* Section 2 */}
-          <section id="category2" className="h-screen flex flex-col">
+
+          <section id="category2" className="h-screen flex flex-col bg-gray-200">
             <div className="flex flex-col items-center justify-center mt-2">
-              <div className=" flex justify-center items-center flex-col mt-5">
-                <div className=" w-[80%] flex items-center justify-between">
+              <div className=" flex justify-center items-center  mt-5">
+                <div className=" w-[full] flex  justify-between flex-row-reverse mx-4 gap-6">
                   <div className=" w-[50%]">
-                    <h2 className=" text-3xl font-bold py-3">WHY CHOOSE US</h2>
-                    <h2 className=" text-3xl font-bold py-3 text-[#0e7490]">About Us</h2>
+                    <h2 className=" text-3xl font-bold pb-3 text-[#0e7490]">About Us</h2>
                     <p>Capital Loan Pvt. Ltd. is dealing in Home Loan,
                       Personal Loan, Agriculture Loan, Shop Loan, Flat Loan, Project Loan,
                       Education Loan, Pay Slip Loan, Car Loan, Machine Loan, Business Loans,
                       Loan Against Property & Project Etc.</p>
-                    <div>
-                      <button className=" bg-[#0e7490] rounded-2xl py-2 px-4 m-2 cursor-pointer">Contact</button>
-                      <button className=" bg-gray-400 rounded-2xl py-2 px-4 cursor-pointer">Apply</button>
+
+                    <div className='flex flex-col p-2 lg:p-0 lg:flex-row justify-center gap-2.5 my-10 '>
+                      <div className=' max-w-[1200px] w-full my-5 lg:w-[full]  flex flex-col lg:flex-row gap-2.5'>
+                        <div className='lg:w-[50%] h-53  shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-2xl'>
+                          <div className=' flex justify-center'>
+                            <img src={clock} alt="" className='w-25 mt-5 rounded-full' />
+                          </div>
+                          <div>
+                            <h2 className=' text-[14px] font-okra text-center m-4 font-bold text-red-500'>24/7 Unlimited Support</h2>
+                            <p className='text-center text-[12px] text-[#1F1F1F] font-Okra,Helvetica,sans-serif px-4'>Our customer support team is ready to help our clients all the time.</p>
+                          </div>
+                        </div>
+                        <div className=' h-53 lg:w-[50%] shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-2xl'>
+                          <div className=' flex justify-center'>
+                            <img src={handshake} alt="" className='w-25 mt-5 rounded-full' />
+                          </div>
+                          <div>
+                            <h2 className=' text-[14px] font-okra text-center m-4 font-bold text-red-500'>We Are Committed</h2>
+                            <p className='text-center text-[12px] text-[#1F1F1F] font-Okra,Helvetica,sans-serif px-4'>Skilled professionals are always ready to provide reliable services to our clients!...</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className=" w-[40%]" >
-                    <img src="https://www.greenapplefinance.in/about.png" alt="" className=" w-[full] h-[300px] rounded-xl" />
+                  <div className=" w-[50%]" >
+                    <img src={finance} alt="" className=" w-[full]  rounded-xl" />
                   </div>
                 </div>
                 <div>
@@ -119,16 +122,16 @@ function App() {
 
           <section
             id="category3"
-            className="h-screen flex flex-col  justify-center"
+            className="h-screen flex flex-col  justify-center bg-amber-50"
           >
             <div className='  flex justify-center '>
-              <div className='w-[100%]  lg:w-[80%] max-w-[1200px] '>
+              <div className='w-[100%]  lg:w-[full] max-w-[1200px] '>
                 <h2 className=' text-3xl py-2 p-2 lg:p-0 sm:text-[24px] lg:text-[28px] font-bold '>OUR SERVICE</h2>
               </div>
 
             </div>
             <div className='flex flex-col p-2 lg:p-0 lg:flex-row justify-center gap-2.5 my-10 '>
-              <div className=' max-w-[1200px] w-full my-5 lg:w-[80%]  flex flex-col lg:flex-row gap-2.5'>
+              <div className=' max-w-[1200px] w-full my-5 lg:w-[full]  flex flex-col lg:flex-row gap-2.5'>
                 <div className='lg:w-[25%] h-90  shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-2xl bg-blue-100'>
                   <div className=' flex justify-center'>
                     <img src="https://www.greenapplefinance.in/personal.jpeg" alt="" className='w-50 m-5 h-35 rounded-xl' />
@@ -170,104 +173,7 @@ function App() {
           </section>
 
 
-          <section
-            id="category4"
-            className="h-screen flex items-center justify-center "
-          >
-            <div className="min-h-screen flex items-center justify-center w-full bg-gray-100">
-              <div className="flex justify-center items-center  bg-gray-100">
-                <form
-                  onSubmit={handleSubmit}
-                  className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md"
-                >
-                  <h2 className="text-2xl font-bold mb-6 text-center">
-                    Credit Card Payment
-                  </h2>
-
-                
-                  <div className="mb-4">
-                    <label className="block font-medium mb-2">Phone </label>
-                    <input
-                      type="number"
-                      name="contact"
-                      value={formData.contact}
-                      onChange={handleChange}
-                      placeholder="Your Contact Phone"
-                      className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                      required
-                    />
-                  </div>
-
-                   <div className="mb-4">
-                    <label className="block font-medium mb-2">Name on Card</label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your name"
-                      className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                      required
-                    />
-                  </div>
-
-                  
-                  <div className="mb-4">
-                    <label className="block font-medium mb-2">Card Number</label>
-                    <input
-                      type="text"
-                      name="cardNumber"
-                      value={formData.cardNumber}
-                      onChange={handleChange}
-                      placeholder="1234 5678 9012 3456"
-                      maxLength="19"
-                      className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                      required
-                    />
-                  </div>
-
-                 
-                  <div className="flex gap-4 mb-4">
-                    <div className="w-1/2">
-                      <label className="block font-medium mb-2">Expiry Date</label>
-                      <input
-                        type="text"
-                        name="expiry"
-                        value={formData.expiry}
-                        onChange={handleChange}
-                        placeholder="MM/YY"
-                        maxLength="5"
-                        className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        required
-                      />
-                    </div>
-                    <div className="w-1/2">
-                      <label className="block font-medium mb-2">CVV</label>
-                      <input
-                        type="password"
-                        name="cvv"
-                        value={formData.cvv}
-                        onChange={handleChange}
-                        placeholder="123"
-                        maxLength="4"
-                        className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  
-                  <button
-                    type="submit"
-                    className="px-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-all"
-                  >
-                    Pay Now
-                  </button>
-                </form>
-              </div>
-
-            </div>
-          </section>
+         
         </main>
       </div>
     </>
