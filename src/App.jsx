@@ -156,7 +156,7 @@ function App() {
         {/* EMI Calculator + Contact */}
         <div className="flex flex-col lg:flex-row gap-6 bg-gray-100 p-4">
           <div className="flex-1 flex justify-center items-center">
-            <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-md">
+            <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-md lg:pb-45">
               <h2 className="text-2xl font-bold text-center mb-4">Loan EMI Calculator</h2>
               <label className="block mb-2 font-medium">Loan Amount (₹)</label>
               <input type="number" className="w-full p-2 mb-4 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Enter amount" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} />
