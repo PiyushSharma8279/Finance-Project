@@ -44,8 +44,7 @@ function App() {
           {/* Top Bar */}
           <div className=" py-1 flex justify-end gap-2 px-2 items-center bg-gradient-to-b  bg-[#0e7490]">
             <FaPhoneAlt color="white" />
-            <p className="text-white font-medium text-lg">850605697 |</p>
-            <p className="text-white font-medium text-lg">9266283114</p>
+            <p className="text-white font-medium text-lg">+91 9368432124 </p>
           </div>
 
           {/* Nav Bar */}
@@ -96,7 +95,7 @@ function App() {
                   <div className=" w-[50%]">
                     <h2 className=" text-3xl font-bold py-3">WHY CHOOSE US</h2>
                     <h2 className=" text-3xl font-bold py-3 text-[#0e7490]">About Us</h2>
-                    <p>Green Apple Financial Services Pvt. Ltd. is dealing in Home Loan,
+                    <p>Capital Loan Pvt. Ltd. is dealing in Home Loan,
                       Personal Loan, Agriculture Loan, Shop Loan, Flat Loan, Project Loan,
                       Education Loan, Pay Slip Loan, Car Loan, Machine Loan, Business Loans,
                       Loan Against Property & Project Etc.</p>
@@ -184,21 +183,21 @@ function App() {
                     Credit Card Payment
                   </h2>
 
-                  {/* Cardholder Name */}
+                
                   <div className="mb-4">
-                    <label className="block font-medium mb-2">Cardholder Name</label>
+                    <label className="block font-medium mb-2">Phone </label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="John Doe"
+                      placeholder="Your Contact Phone"
                       className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                       required
                     />
                   </div>
 
-                  {/* Card Number */}
+                  
                   <div className="mb-4">
                     <label className="block font-medium mb-2">Card Number</label>
                     <input
@@ -213,7 +212,7 @@ function App() {
                     />
                   </div>
 
-                  {/* Expiry Date & CVV */}
+                 
                   <div className="flex gap-4 mb-4">
                     <div className="w-1/2">
                       <label className="block font-medium mb-2">Expiry Date</label>
@@ -243,7 +242,7 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Submit Button */}
+                  
                   <button
                     type="submit"
                     className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-all"
