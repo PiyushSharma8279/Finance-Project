@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import clock from "./assets/clock.jpg"
 import handshake from "./assets/handshake.jpg"
@@ -7,9 +7,16 @@ import finance from "./assets/finance.jpg"
 
 
 function App() {
+
+   const images = [
+    "https://www.greenapplefinance.in/slider1.jpg",
+    "https://www.greenapplefinance.in/slider2.jpg",
+    "https://www.greenapplefinance.in/slider3.jpg"
+  ]; 
+
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
-    const offset = 120; // height of header + top bar
+    const offset = 120; 
     const elementPosition = section.getBoundingClientRect().top + window.scrollY;
     const offsetPosition = elementPosition - offset;
 
@@ -19,6 +26,18 @@ function App() {
     });
 
   };
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000); // change every 2 sec
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   
 
 
@@ -51,27 +70,29 @@ function App() {
           <div className="h-24"></div>
 
 
-          <section
-            id="category1"
-            className="relative w-full h-[500px] flex items-center justify-center"
-          >
-            <img
-              src="https://media.istockphoto.com/id/1503371245/photo/percentage-sign-on-top-of-coin-stacks-before-blue-financial-graph.jpg?s=612x612&w=0&k=20&c=T9YGg7XIZTG_8E2h1xsTaQkdLGCTjkX_rnMr0adtAQk="
-              alt=""
-              className="w-full h-full object-cover"
-            />
+         <section
+      id="category1"
+      className="relative w-full h-[500px] flex items-center justify-center"
+    >
+      <img
+        src={images[currentIndex]}
+        alt=""
+        className="w-full h-full object-cover transition-all duration-700 ease-in-out"
+      />
 
-
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-black text-center">
-              <h2 className="text-4xl font-extrabold">Finance Service</h2>
-              <h2 className="text-2xl font-bold">PVT. LTD.</h2>
-              <div>
-                <button className=" bg-[#0e7490] rounded-2xl py-2 px-4 m-2 cursor-pointer">Contact</button>
-                <button className=" bg-gray-400 rounded-2xl py-2 px-4 cursor-pointer">Apply</button>
-              </div>
-            </div>
-
-          </section>
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-black text-center">
+        <h2 className="text-4xl font-extrabold">Finance Service</h2>
+        <h2 className="text-2xl font-bold">PVT. LTD.</h2>
+        <div>
+          <button className="bg-[#0e7490] rounded-2xl py-2 px-4 m-2 cursor-pointer">
+            Contact
+          </button>
+          <button className="bg-gray-400 rounded-2xl py-2 px-4 cursor-pointer">
+            Apply
+          </button>
+        </div>
+      </div>
+    </section>
 
 
           <section id="category2" className="h-screen flex flex-col bg-gray-200">
