@@ -3,6 +3,9 @@ import { FaPhoneAlt } from "react-icons/fa";
 import clock from "./assets/clock.jpg"
 import handshake from "./assets/handshake.jpg"
 import finance from "./assets/finance.jpg"
+import home from './assets/home.jpg'
+
+
 
 
 
@@ -38,6 +41,31 @@ function App() {
     return () => clearInterval(interval);
   }, [images.length]);
 
+
+   const [loanAmount, setLoanAmount] = useState("");
+  const [interestRate, setInterestRate] = useState("");
+  const [loanTenure, setLoanTenure] = useState("");
+  const [emi, setEmi] = useState(null);
+
+  const calculateEMI = () => {
+    if (!loanAmount || !interestRate || !loanTenure) {
+      setEmi("Please enter all values.");
+      return;
+    }
+
+    const P = parseFloat(loanAmount);
+    const annualRate = parseFloat(interestRate);
+    const years = parseFloat(loanTenure);
+
+    const R = annualRate / 12 / 100; 
+    const N = years * 12; 
+
+    const emiValue =
+      (P * R * Math.pow(1 + R, N)) /
+      (Math.pow(1 + R, N) - 1);
+
+    setEmi(`Your EMI is ₹${emiValue.toFixed(2)} per month`);
+  };
   
 
 
@@ -155,7 +183,7 @@ function App() {
               <div className=' max-w-[1200px] w-full my-5 lg:w-[full]  flex flex-col lg:flex-row gap-2.5'>
                 <div className='lg:w-[25%] h-90  shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-2xl bg-blue-100'>
                   <div className=' flex justify-center'>
-                    <img src="https://www.greenapplefinance.in/personal.jpeg" alt="" className='w-50 m-5 h-35 rounded-xl' />
+                    <img src="https://www.greenapplefinance.in/personal.jpeg" alt="" className='w-full m-2 rounded-xl' />
                   </div>
                   <div>
                     <h2 className=' text-[18px] font-okra text-center m-4 font-bold'>Personal Loan</h2>
@@ -164,7 +192,7 @@ function App() {
                 </div>
                 <div className='lg:w-[25%] h-90  shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-2xl bg-blue-100'>
                   <div className=' flex justify-center'>
-                    <img src="https://www.greenapplefinance.in/homeLoan.png" alt="" className='w-50 m-5 h-35 rounded-xl' />
+                    <img src={home} alt="" className='w-[96%] m-2    rounded-xl' />
                   </div>
                   <div>
                     <h2 className=' text-[18px] font-okra text-center m-4 font-bold'>Home Loan</h2>
@@ -173,7 +201,7 @@ function App() {
                 </div>
                 <div className='lg:w-[25%] h-90  shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-2xl bg-blue-100'>
                   <div className=' flex justify-center'>
-                    <img src="https://www.greenapplefinance.in/education.jpeg" alt="" className='w-50 h-35 m-5 rounded-xl' />
+                    <img src="https://www.greenapplefinance.in/personal.jpeg" alt="" className='w-[100%] m-2   rounded-xl' />
                   </div>
                   <div>
                     <h2 className=' text-[18px] font-okra text-center m-4 font-bold'>Education Loan</h2>
@@ -182,7 +210,7 @@ function App() {
                 </div>
                 <div className='lg:w-[25%] h-90  shadow-[0_0_0_1px_rgba(0,0,0,0.1)] rounded-2xl bg-blue-100'>
                   <div className=' flex justify-center'>
-                    <img src="https://www.greenapplefinance.in/businessLoan.png" alt="" className='w-50 m-5 h-35 rounded-xl' />
+                    <img src={home} alt="" className='w-[96%] m-2  rounded-xl' />
                   </div>
                   <div>
                     <h2 className=' text-[18px] font-okra text-center m-4 font-bold'>Business Loan</h2>
@@ -192,10 +220,58 @@ function App() {
               </div>
             </div>
           </section>
-
-
          
         </main>
+        <div>
+<div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-md">
+        <h2 className="text-2xl font-bold text-center mb-4">Loan EMI Calculator</h2>
+
+        <label className="block mb-2 font-medium">Loan Amount (₹)</label>
+        <input
+          type="number"
+          className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          placeholder="Enter amount"
+          value={loanAmount}
+          onChange={(e) => setLoanAmount(e.target.value)}
+        />
+
+        <label className="block mb-2 font-medium">Annual Interest Rate (%)</label>
+        <input
+          type="number"
+          step="0.01"
+          className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          placeholder="Enter interest rate"
+          value={interestRate}
+          onChange={(e) => setInterestRate(e.target.value)}
+        />
+
+        <label className="block mb-2 font-medium">Tenure (Years)</label>
+        <input
+          type="number"
+          className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          placeholder="Enter years"
+          value={loanTenure}
+          onChange={(e) => setLoanTenure(e.target.value)}
+        />
+
+        <button
+          onClick={calculateEMI}
+          className="w-full py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition duration-300"
+        >
+          Calculate EMI
+        </button>
+
+        {emi && (
+          <div className="mt-4 p-3 bg-green-50 text-green-700 font-semibold text-center rounded-lg">
+            {emi}
+          </div>
+        )}
+      </div>
+    </div>
+
+
+        </div>
       </div>
     </>
   );

