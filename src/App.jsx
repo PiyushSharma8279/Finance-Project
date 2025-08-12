@@ -16,6 +16,7 @@ function App() {
   };
   const [formData, setFormData] = useState({
     name: "",
+    contact: "",
     cardNumber: "",
     expiry: "",
     cvv: "",
@@ -39,9 +40,9 @@ function App() {
   return (
     <>
       <div>
-        {/* Header */}
+        
         <header className="fixed top-0 left-0 w-full z-50 ">
-          {/* Top Bar */}
+         
           <div className=" py-1 flex justify-end gap-2 px-2 items-center bg-gradient-to-b  bg-[#0e7490]">
             <FaPhoneAlt color="white" />
             <p className="text-white font-medium text-lg">+91 9368432124 </p>
@@ -187,11 +188,24 @@ function App() {
                   <div className="mb-4">
                     <label className="block font-medium mb-2">Phone </label>
                     <input
+                      type="number"
+                      name="contact"
+                      value={formData.contact}
+                      onChange={handleChange}
+                      placeholder="Your Contact Phone"
+                      className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                      required
+                    />
+                  </div>
+
+                   <div className="mb-4">
+                    <label className="block font-medium mb-2">Name on Card</label>
+                    <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Your Contact Phone"
+                      placeholder="Your name"
                       className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
                       required
                     />
@@ -245,7 +259,7 @@ function App() {
                   
                   <button
                     type="submit"
-                    className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-all"
+                    className="px-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-all"
                   >
                     Pay Now
                   </button>
