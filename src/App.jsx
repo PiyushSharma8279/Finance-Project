@@ -65,13 +65,13 @@ function App() {
         <div className="text-gray-800 font-medium flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-8 py-4 px-4 bg-white">
           <div className="text-2xl sm:text-3xl font-bold">Finance</div>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-10">
-            <button onClick={() => scrollToSection("category1")} className="hover:underline">
+            <button onClick={() => scrollToSection("category1")} className="hover:underline cursor-pointer">
               Home
             </button>
-            <button onClick={() => scrollToSection("category2")} className="hover:underline">
+            <button onClick={() => scrollToSection("category2")} className="hover:underline cursor-pointer">
               About Us
             </button>
-            <button onClick={() => scrollToSection("category3")} className="hover:underline">
+            <button onClick={() => scrollToSection("category3")} className="hover:underline cursor-pointer">
               Loan Service
             </button>
             <a href="/payments" className="hover:underline">
