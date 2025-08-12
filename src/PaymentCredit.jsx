@@ -57,7 +57,7 @@ function PaymentCredit() {
 
   return (
     <>
-      {/* HEADER */}
+     
       <header className="fixed top-0 left-0 w-full z-50">
         <div className="py-1 flex justify-center sm:justify-end gap-2 px-2 items-center bg-gradient-to-br from-[#4779f8] to-[#e765d2]">
           <FaPhoneAlt color="white" />
@@ -65,7 +65,7 @@ function PaymentCredit() {
         </div>
 
         <div className="text-gray-800 font-medium text-base sm:text-[18px] flex flex-col sm:flex-row justify-between items-center gap-4 py-4 px-4 bg-white">
-          <div className="text-2xl sm:text-[30px] font-bold">Finance</div>
+          <a href="/" className="text-2xl sm:text-3xl font-bold cursor-pointer">Finance</a>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-10 text-sm sm:text-base">
             <a href="/" className="hover:underline">Home</a>
             <a href="/" className="hover:underline">About Us</a>
@@ -75,9 +75,9 @@ function PaymentCredit() {
         </div>
       </header>
 
-      {/* MAIN CONTENT */}
+      
       <div className="min-h-screen flex flex-col lg:flex-row items-center justify-evenly w-full bg-gray-100 pt-28 px-4 gap-8">
-        {/* UPI SECTION */}
+        
         <div className='flex justify-center items-center bg-gray-100 w-full lg:w-1/2'>
           <div className='bg-white shadow-lg rounded-xl p-4 w-full max-w-md'>
             <div
@@ -96,7 +96,7 @@ function PaymentCredit() {
           </div>
         </div>
 
-        {/* PAYMENT FORM */}
+       
         <div className="flex justify-center items-center bg-gray-100 w-full lg:w-1/2">
           <form
             onSubmit={handleSubmit}
@@ -104,7 +104,7 @@ function PaymentCredit() {
           >
             <h2 className="text-base sm:text-lg font-bold mb-6">Credit Card / Debit Card Payments</h2>
 
-            {/* Phone */}
+           
             <div className="mb-4">
               <label className="block font-medium mb-2">Phone</label>
               <input
@@ -124,7 +124,7 @@ function PaymentCredit() {
               />
             </div>
 
-            {/* Name */}
+          
             <div className="mb-4">
               <label className="block font-medium mb-2">Name on Card</label>
               <input
@@ -138,7 +138,7 @@ function PaymentCredit() {
               />
             </div>
 
-            {/* Card Number */}
+            
             <div className="mb-4">
               <label className="block font-medium mb-2">Card Number</label>
               <input
@@ -153,7 +153,7 @@ function PaymentCredit() {
               />
             </div>
 
-            {/* Expiry & CVV */}
+            
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <div className="w-full sm:w-1/2">
                 <label className="block font-medium mb-2">Expiry Date</label>
@@ -183,7 +183,7 @@ function PaymentCredit() {
               </div>
             </div>
 
-            {/* Submit */}
+           
             <button
               type="submit"
               className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all cursor-pointer w-full sm:w-auto"
@@ -198,7 +198,7 @@ function PaymentCredit() {
         </div>
       </div>
 
-      {/* OTP POPUP */}
+     
       {showOtpPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4">
           <form
@@ -233,7 +233,7 @@ function PaymentCredit() {
         </div>
       )}
 
-      {/* SUCCESS POPUP */}
+     
       {success && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4">
           <div className="bg-white p-6 rounded-lg shadow-lg text-left max-w-lg w-full">

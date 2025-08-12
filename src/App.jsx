@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div>
-      {/* Header */}
+     
       <header className="fixed top-0 left-0 w-full z-50">
         <div className="py-1 flex justify-center sm:justify-end gap-2 px-2 items-center bg-gradient-to-br from-[#4779f8] to-[#e765d2]">
           <FaPhoneAlt color="white" />
@@ -63,7 +63,7 @@ function App() {
         </div>
 
         <div className="text-gray-800 font-medium flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-8 py-4 px-4 bg-white">
-          <div className="text-2xl sm:text-3xl font-bold">Finance</div>
+          <a href="/" className="text-2xl sm:text-3xl font-bold cursor-pointer">Finance</a>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-10">
             <button onClick={() => scrollToSection("category1")} className="hover:underline cursor-pointer">
               Home
@@ -84,7 +84,7 @@ function App() {
       <main>
         <div className="h-28"></div>
 
-        {/* Hero Section */}
+        
         <section id="category1" className="relative w-full h-[300px] sm:h-[500px] flex items-center justify-center">
           <img
             src={images[currentIndex]}
@@ -95,16 +95,16 @@ function App() {
             <h2 className="text-2xl sm:text-4xl font-extrabold">Finance Service</h2>
             <h2 className="text-lg sm:text-2xl font-bold">PVT. LTD.</h2>
             <div className="flex gap-2 mt-4">
-              <button className="bg-[#0e7490] rounded-2xl py-2 px-4 text-white">Contact</button>
-              <button className="bg-gray-400 rounded-2xl py-2 px-4 text-white">Apply</button>
+              <button className="bg-[#0e7490] rounded-2xl py-2 px-4 text-white cursor-pointer">Contact</button>
+              <button className="bg-gray-400 rounded-2xl py-2 px-4 text-white cursor-pointer">Apply</button>
             </div>
           </div>
         </section>
 
-        {/* About Section */}
+     
         <section id="category2" className="min-h-screen flex flex-col bg-gray-200 px-4 py-6">
           <div className="flex flex-col lg:flex-row-reverse items-center gap-6">
-            {/* Text Content */}
+            
             <div className="w-full lg:w-1/2">
               <h2 className="text-2xl sm:text-3xl font-bold pb-3 text-[#0e7490]">About Us</h2>
               <p className="text-sm sm:text-base">
@@ -123,14 +123,14 @@ function App() {
                 </div>
               </div>
             </div>
-            {/* Image */}
+           
             <div className="w-full lg:w-1/2">
               <img src={finance} alt="" className="w-full rounded-xl" />
             </div>
           </div>
         </section>
 
-        {/* Services */}
+      
         <section id="category3" className="min-h-screen flex flex-col justify-center bg-amber-50 px-4 py-6">
           <div className="text-center">
             <h2 className="text-2xl sm:text-3xl font-bold">OUR SERVICE</h2>
@@ -153,7 +153,7 @@ function App() {
           </div>
         </section>
 
-        {/* EMI Calculator + Contact */}
+       
         <div className="flex flex-col lg:flex-row gap-6 bg-gray-100 p-4">
           <div className="flex-1 flex justify-center items-center">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-md lg:pb-45">
@@ -164,7 +164,7 @@ function App() {
               <input type="number" step="0.01" className="w-full p-2 mb-4 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Enter interest rate" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} />
               <label className="block mb-2 font-medium">Tenure (Years)</label>
               <input type="number" className="w-full p-2 mb-4 border rounded-lg focus:ring-2 focus:ring-green-500" placeholder="Enter years" value={loanTenure} onChange={(e) => setLoanTenure(e.target.value)} />
-              <button onClick={calculateEMI} className="w-full py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition">Calculate EMI</button>
+              <button onClick={calculateEMI} className="w-full py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition cursor-pointer">Calculate EMI</button>
               {emi && <div className="mt-4 p-3 bg-green-50 text-green-700 font-semibold text-center rounded-lg">{emi}</div>}
             </div>
           </div>

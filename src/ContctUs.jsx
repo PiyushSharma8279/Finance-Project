@@ -33,7 +33,7 @@ export default function ContactForm() {
       >
         <h2 className="text-2xl font-bold text-center mb-3">Contact Us</h2>
 
-        {/* Name */}
+       
         <label className="block mb-2 font-medium">Name</label>
         <input
           type="text"
@@ -44,7 +44,7 @@ export default function ContactForm() {
           className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
 
-        {/* Email */}
+       
         <label className="block mb-2 font-medium">Email</label>
         <input
           type="email"
@@ -55,7 +55,7 @@ export default function ContactForm() {
           className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
 
-        {/* Phone */}
+       
         <label className="block mb-2 font-medium">Phone</label>
         <input
           type="tel"
@@ -66,7 +66,7 @@ export default function ContactForm() {
           className="w-full p-2 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
 
-        {/* Message */}
+      
         <label className="block mb-2 font-medium">Your Message</label>
         <textarea
           name="message"
@@ -78,7 +78,7 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition duration-300"
+          className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition duration-300 cursor-pointer"
         >
           Send Message
         </button>
