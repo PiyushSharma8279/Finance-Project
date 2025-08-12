@@ -49,7 +49,7 @@ function App() {
           </div>
 
           {/* Nav Bar */}
-          <div className=" text-white text-[18px] flex justify-between items-center gap-8 py-2 px-4 bg-gradient-to-b  bg-[#4779f8] to-[#e765d2]">
+          <div className=" text-white text-[18px] flex justify-between items-center gap-8 py-2 px-4 bg-gradient-to-br  bg-[#4779f8] to-[#e765d2]">
             <div className="text-[30px] font-bold">Finance</div>
 
             <div className="flex gap-10">
@@ -91,16 +91,6 @@ function App() {
           {/* Section 2 */}
           <section id="category2" className="h-screen flex flex-col">
             <div className="flex flex-col items-center justify-center mt-2">
-              <div className="w-[80%]">
-                <div className="bg-green-700 p-4 w-full text-2xl font-medium text-white">
-                  <h2>ABOUT</h2>
-                  <h2>COMPANY</h2>
-                </div>
-                <div className="bg-white h-0.5"></div>
-                <div className="bg-green-700 p-4 w-full text-white">
-                  <h2 className="text-2xl font-medium">NEWS</h2>
-                </div>
-              </div>
               <div className=" flex justify-center items-center flex-col mt-5">
                 <div className=" w-[80%] flex items-center justify-between">
                   <div className=" w-[50%]">
