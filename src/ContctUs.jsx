@@ -10,7 +10,32 @@ export default function ContactForm() {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    emailjs
+      .send(
+        "service_dor4to5",   
+        "template_8v6m8yr",  
+        {
+        
+          name: formData.name,
+          mail: formData.email,
+          phone:formData.phone,
+          message:formData.message
+        },
+        "u6Lan19feHeNIYuvk"    
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Form submitted and email sent!");
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Failed to send email.");
+        }
+      );
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();

